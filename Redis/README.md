@@ -53,6 +53,17 @@
 - INC :: INCR counter, INCRBY counter 10
 - DEC
 
+### PIPELINE
+```spel
+                Pipeline pipeline = jedis.pipelined();
+                pipeline.set("users:400:email", "jack4@naver.com");
+                pipeline.set("users:400:name", "jack4");
+                pipeline.set("users:400:age", "34");
+                List<Object> ob = pipeline.syncAndReturnAll();
+                ob.forEach(i -> System.out.println(i.toString()));
+```
+
+
 ### TTL (Time To Live)
 
 - EXPIRE [KEY] [SECOND]
