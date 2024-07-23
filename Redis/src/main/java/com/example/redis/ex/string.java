@@ -1,13 +1,12 @@
-package com.example.redis;
+package com.example.redis.ex;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.Pipeline;
 
 import java.util.List;
-import java.util.Objects;
 
-public class Main {
+public class string {
     public static void main(String[] args) {
 
         try (var jedisPool = new JedisPool("127.0.0.1", 6378)) {
@@ -20,7 +19,7 @@ public class Main {
                 var userEmail = jedis.get("users:300:email");
                 System.out.println(userEmail);
 
-                List<String> userInfo = jedis.mget("users:300:email", "users:300:name", "users:300:age");
+                List<java.lang.String> userInfo = jedis.mget("users:300:email", "users:300:name", "users:300:age");
                 userInfo.forEach(System.out::println);
 
                 long counter = jedis.incr("counter");
