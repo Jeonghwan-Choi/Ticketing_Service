@@ -1,4 +1,4 @@
-package com.example.redis.ex;
+package com.example.redis.dataType;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;

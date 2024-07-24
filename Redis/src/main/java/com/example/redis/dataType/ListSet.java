@@ -1,4 +1,4 @@
-package com.example.redis.ex;
+package com.example.redis.dataType;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
@@ -9,7 +9,7 @@ import java.util.Set;
 public class ListSet {
     public static void main(String[] args) {
         try (var jedisPool = new JedisPool("127.0.0.1", 6378)) {
-            try (Jedis jedis = jedisPool.getResource()) {
+                try (Jedis jedis = jedisPool.getResource()) {
 //                list
 //                1.stack
                 jedis.rpush("stack1", "aaaa");
@@ -47,17 +47,17 @@ public class ListSet {
                 }
 
 //                4.set
-                jedis.sadd("users:500:follow","100", "200", "300", "120");
-                jedis.srem("users:500:follow", "100");
+//                jedis.sadd("users:500:follow","100", "200", "300", "120");
+//                jedis.srem("users:500:follow", "100");
 
-                Set<String> smembers = jedis.smembers("users:500:follow");
-                smembers.forEach(System.out::println);
+//                Set<String> smembers = jedis.smembers("users:500:follow");
+//                smembers.forEach(System.out::println);
 
-                System.out.println(jedis.sismember("users:500:follow", "200"));
-                System.out.println(jedis.sismember("users:500:follow", "120"));
-
-                System.out.println(jedis.scard("users:500:follow"));
-                System.out.println(jedis.sinter("users:500:follow", "users:100:follow"));
+//                System.out.println(jedis.sismember("users:500:follow", "200"));
+//                System.out.println(jedis.sismember("users:500:follow", "120"));
+//
+//                System.out.println(jedis.scard("users:500:follow"));
+//                System.out.println(jedis.sinter("users:500:follow", "users:100:follow"));
             }
         }
     }
