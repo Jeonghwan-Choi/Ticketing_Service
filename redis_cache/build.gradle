@@ -18,10 +18,18 @@ repositories {
 }
 
 dependencies {
+	implementation 'redis.clients:jedis:4.3.1'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-configuration-processor:2.7.5:'
+	implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.4'
+	implementation 'jakarta.servlet:jakarta.servlet-api:6.0.0'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	runtimeOnly 'mysql:mysql-connector-java'
 }
 
 tasks.named('test') {
